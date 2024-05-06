@@ -1,12 +1,13 @@
 import { Fragment, useContext } from "react";
 import { Link, Outlet } from "react-router-dom";
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg'
-import './navigation.style.scss';
+// import './navigation.style.scss';
 import { UserContext } from "../../contexts/user.context";
 import { signOutUser } from "../../utils/firebase/firebase.utils";
 import CartIcon from "../../components/cart-icon/Cart-icon.component";
 import CartDropdown from "../../components/cart-dropdown/Cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
+import { LogoContainer, NavLink, NavLinksContainer, Navigation } from "./navigation.style";
 
 const NavigationBar = () => {
   const { currentUser, setCurrentUser } = useContext(UserContext);
@@ -19,26 +20,28 @@ const NavigationBar = () => {
   // }
     return(
       <Fragment>
-        <div className="navigation">
-            <Link className="logo-container" to="/">    
+        <Navigation>
+            <LogoContainer  to="/">    
                 <CrwnLogo className="logo" />
-            </Link>
-            <div className="nav-links-container">
-                <Link className="nav-link" to="/shop">Shop</Link>
-                <Link className="nav-link" to="/contact">Contact</Link>
+            </LogoContainer>
+            <NavLinksContainer>
+                <NavLink to="/shop">Shop</NavLink>
+                <NavLink to="/contact">Contact</NavLink>
                 {
                   currentUser ? (
-                    <span className="nav-link" onClick={signOutUser}>SignOut</span>
+                    <NavLink as="span" onClick={signOutUser}>SignOut</NavLink>
                   ) 
-                  :( <Link className="nav-link" to="/auth">SignIn</Link> )
+                  :( <NavLink to="/auth">SignIn</NavLink> )
                 }
                 <CartIcon />
-            </div>
+            </NavLinksContainer>
             {isCartOpen && <CartDropdown />}
-        </div>
+        </Navigation>
         <Outlet/>
       </Fragment>
     )
 }
   
 export default NavigationBar; 
+
+
