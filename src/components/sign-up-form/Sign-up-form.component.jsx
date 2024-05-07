@@ -17,13 +17,11 @@ const SignUpForm = () => {
 
     const { setCurrentUser } = useContext(UserContext);  //not use anymore
 
-    console.log("hit from sign up");
-
+    
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password, confirmPassword } = formFields;
 
-    console.log("formfields:", formFields);
-
+    
     const resetFormFileds = () => {
         setFormFields(defaultFormFields);
     }
@@ -31,7 +29,6 @@ const SignUpForm = () => {
     const handleSubmit = async (event) => {
         event.preventDefault();
 
-        console.log("event on hanlde submit", event);
         if(password !== confirmPassword){
             alert("Password does not match");
         }
@@ -40,8 +37,7 @@ const SignUpForm = () => {
             const { user } = await createAuthUserWithEmailAndPassword(email, password);
 
             // setCurrentUser(user);
-            console.log("email, pass user on signup", user);
-
+           
             await createUserDocumentFromAuth(user, {displayName});
 
             resetFormFileds();
@@ -58,7 +54,6 @@ const SignUpForm = () => {
     }
 
     const handleChange = (event) => {
-        console.log("event", event);
         const { name, value } = event.target;
 
         setFormFields({...formFields, [name]: value} )
