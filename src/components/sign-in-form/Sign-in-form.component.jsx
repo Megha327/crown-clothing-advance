@@ -3,7 +3,7 @@ import { createAuthUserWithEmailAndPassword, createUserDocumentFromAuth, signInA
 import FormInput from "../form-input/form-input.component";
 
 import './sign-in-form.styles.scss'; 
-import Button from "../button/Button.component";
+import Button, { BUTTON_TYPE_CLASSESS } from "../button/Button.component";
 import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
@@ -67,7 +67,7 @@ const SignInForm = () => {
 
                 <div className="buttons-container">
                     <Button type="submit">Sign In</Button>
-                    <Button type="button" onClick = {signInWithGoogle} buttonType={"google"}>Sign In with Google</Button>
+                    <Button type="button" onClick = {signInWithGoogle} buttonType={BUTTON_TYPE_CLASSESS.google}>Sign In with Google</Button>
                 </div>
             </form>
         </div>
