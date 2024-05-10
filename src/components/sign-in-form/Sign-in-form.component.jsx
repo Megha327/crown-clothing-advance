@@ -4,7 +4,6 @@ import FormInput from "../form-input/form-input.component";
 
 import './sign-in-form.styles.scss'; 
 import Button, { BUTTON_TYPE_CLASSESS } from "../button/Button.component";
-import { UserContext } from "../../contexts/user.context";
 
 const defaultFormFields = {
     email: '',
@@ -15,9 +14,6 @@ const SignInForm = () => {
 
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { email, password } = formFields;
-
-    const { setCurrentUser } = useContext(UserContext);   // not use naymore
-
  
     const resetFormFileds = () => {
         setFormFields(defaultFormFields);
@@ -36,7 +32,6 @@ const SignInForm = () => {
 
         try{
             const user = await signInAuthUserWithEmailAndPassword(email, password);
-            // setCurrentUser(user);
             resetFormFileds();
         }catch(error){
             if(error.code === 'auth/invalid-credential'){
