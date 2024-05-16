@@ -1,9 +1,14 @@
 import { Outlet } from "react-router-dom";
 import Directory from "../../components/category-item/directory/Directory.component";
+import { useEffect } from "react";
 
 
 
 const Home = () => {
+
+  useEffect(() => {
+    console.log("home calling");
+  }, [])
 
   const categories = [
     {
