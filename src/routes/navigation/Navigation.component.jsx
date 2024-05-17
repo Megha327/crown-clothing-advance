@@ -13,8 +13,7 @@ import { currentUserSelector } from "../../store/user/user.selector";
 const NavigationBar = () => {
   const currentUser = useSelector(currentUserSelector)
   const { isCartOpen } = useContext(CartContext);
-  console.log("current user of navigation", currentUser);
-
+ 
     return(
       <Fragment>
         <Navigation>

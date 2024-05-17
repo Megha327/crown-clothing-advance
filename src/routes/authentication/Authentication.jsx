@@ -9,28 +9,11 @@ import './authentication.styles.scss';
 
 const Authentication = () => {
 
-    // useEffect(() => async () =>{
-    //     const response =  await getRedirectResult(auth);
-    //     console.log("response:", response);
-    //     if(response){
-    //         const userDocRef = await createUserDocumentFromAuth(response.user);
-    //     }
-    // }, []);
-
-
-    /*comment out code for login from google popup in authentication page */
-    // const logGoogleUserWithPopup = async() => {
-    //     const {user} = await signInwithGooglePopup();
-    //     console.log("response with google popup", user);
-    //     const userDocRef  = await createUserDocumentFromAuth(user);
-    // }
-
+   
     return (
         <div className="authentication-container">
-            {/* <button onClick={logGoogleUserWithPopup}>Sign in with google Popup</button> */}
             <SignInForm />
             <SignUpForm/>
-            {/* <button onClick={signInwithGoogleRedirect}>Sign in with google Redirect</button> */}
         </div>
     )
 }

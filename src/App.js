@@ -17,7 +17,6 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("calling use effect of app")
     const unsubscribe =   onAuthStateChangedListner((user) => {
           if(user){
             createUserDocumentFromAuth(user);
