@@ -6,10 +6,6 @@ import { useEffect } from "react";
 
 const Home = () => {
 
-  useEffect(() => {
-    console.log("home calling");
-  }, [])
-
   const categories = [
     {
       "id": 1,
